@@ -32,6 +32,10 @@ public class MessageController {
 			model.addAttribute("msg", mid+"님 회원가입되었습니다!");
 			model.addAttribute("url", "/member/login");
 		}
+		else if(msgFlag.equals("levelNo")) {
+			model.addAttribute("msg", "회원님의 등급을 확인하세요!");
+			model.addAttribute("url", "/member/memberMain");
+		}
 		
 		return "include/message";
 	}

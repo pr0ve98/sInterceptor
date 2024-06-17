@@ -14,10 +14,15 @@ public class BoardInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		System.out.println("preHandle통과중...");
 		HttpSession session = request.getSession();
-		int level = session.getAttribute("sLevel")==null ? 99 : (int)request.getAttribute("sLevel");
+		int level = session.getAttribute("sLevel")==null ? 99 : (int)session.getAttribute("sLevel");
 		
 		if(level > 3) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/message/loginNo");
+			dispatcher.forward(request, response);
+			return false;
+		}
+		else if(level == 3) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/message/levelNo");
 			dispatcher.forward(request, response);
 			return false;
 		}
