@@ -19,7 +19,7 @@
 			<mapping path="/board/boardInput"/>
 			-->
 			<mapping path="/board/**"/>
-			<exclude-mapping path="/board/boardList"/> <!-- 예외처리 -->
+			<!-- <exclude-mapping path="/board/boardList"/> 예외처리 -->
 			
 			<beans:ref bean="boardInterceptor" />
 		</interceptor>
